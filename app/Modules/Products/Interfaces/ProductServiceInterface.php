@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 interface ProductServiceInterface
 {
-    public function list(): LengthAwarePaginator;
+    public function list($pageSize): LengthAwarePaginator;
 
     public function show(int $id): Product;
 

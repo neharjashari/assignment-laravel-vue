@@ -12,9 +12,9 @@ class ProductController extends Controller
 {
     public function __construct(protected ProductServiceInterface $service) {}
 
-    public function index()
+    public function index($pageSize = 9)
     {
-        return response()->json($this->service->list());
+        return response()->json($this->service->list($pageSize));
     }
 
     public function store(StoreProductRequest $request)

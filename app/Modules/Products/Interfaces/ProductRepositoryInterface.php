@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 interface ProductRepositoryInterface
 {
-    public function all(): LengthAwarePaginator;
+    public function all($pageSize): LengthAwarePaginator;
 
     public function find(int $id): Product;
 

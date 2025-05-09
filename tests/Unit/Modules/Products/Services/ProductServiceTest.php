@@ -52,6 +52,8 @@ class ProductServiceTest extends TestCase
             new Product(['title' => 'Product 2']),
         ]);
 
+        $pageSize = 9;
+
         $paginator = new LengthAwarePaginator(
             $products,
             total: $products->count(),
@@ -64,7 +66,7 @@ class ProductServiceTest extends TestCase
             ->once()
             ->andReturn($paginator);
 
-        $result = $this->service->list();
+        $result = $this->service->list($pageSize);
 
         $this->assertInstanceOf(LengthAwarePaginator::class, $result);
         $this->assertEquals(2, $result->total());

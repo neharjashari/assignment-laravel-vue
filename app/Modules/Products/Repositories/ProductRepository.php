@@ -9,9 +9,9 @@ use Illuminate\Support\Collection;
 
 class ProductRepository implements ProductRepositoryInterface
 {
-    public function all(): LengthAwarePaginator
+    public function all($pageSize): LengthAwarePaginator
     {
-        return Product::paginate(9);
+        return Product::paginate($pageSize);
     }
 
     public function find(int $id): Product

@@ -12,9 +12,9 @@ class ProductService implements ProductServiceInterface
 {
     public function __construct(protected ProductRepositoryInterface $repository) {}
 
-    public function list(): LengthAwarePaginator
+    public function list($pageSize): LengthAwarePaginator
     {
-        return $this->repository->all();
+        return $this->repository->all($pageSize);
     }
 
     public function show(int $id): Product
